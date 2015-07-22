@@ -86,13 +86,11 @@ app.get("/things/new", function(req, res){
 });
     
 
-    //Snip
-
-    app.delete("/things/:id", function(req, res){
+app.delete("/things/:id", function(req, res){
     Thing.findById(req.params.id).remove()
-    .then(function(){
+      .then(function(){
         res.redirect("/things");
-  console.log('item removed!');
+        console.log('item removed!');
     });
 });
     
@@ -108,7 +106,7 @@ app.get("/things/:id", function(req, res){
         });
 });
 
-// ADDED
+
 app.use(function(req, res) {
       res.status(400);
       res.render('404.jade',
@@ -119,7 +117,7 @@ app.use(function(error, req, res, next) {
       res.status(500);
       res.render('500.jade', {title:'500: Internal Server Error', error: error});
   });
-// TO HERE
+
 
 app.listen(3000);
 console.log('Express started on port 3000');
