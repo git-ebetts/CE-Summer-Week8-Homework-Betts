@@ -1,0 +1,12 @@
+extends layout
+block content
+    a(href="/things") Back to list
+    form.form(method="POST")
+        div.form-group
+            label(for="thing_name") Name
+            input.form-control#thing_name(name="name" required=true)
+        div
+            button.btn.btn-primary(type="submit")
+                | Save
+        
+                

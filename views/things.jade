@@ -1,0 +1,13 @@
+extends layout
+block content
+    a(href="/things/new") 
+        | Create a new thing
+    ul
+        each thing in things
+            li 
+                a(href="/things/#{thing._id}")
+                    =thing.name
+                
+    if things.length == 0
+        .alert.alert-danger
+            | There are no things!
